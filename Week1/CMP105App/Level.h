@@ -19,6 +19,7 @@ private:
 	void endDraw();
 	sf::RenderWindow* window;
 
+	sf::RectangleShape bottomrightrectangle;
 	sf::RectangleShape rect;
 	sf::RectangleShape rectblue;
 	sf::RectangleShape rectred;

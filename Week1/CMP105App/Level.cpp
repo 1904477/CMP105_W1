@@ -43,6 +43,11 @@ Level::Level(sf::RenderWindow* hwnd)
 	circle.setRadius(50);
 	circle.setPosition(550,300);
 
+	//Bottom right rectangle
+	sf::Vector2f bottomrightrectanglesize(100, 100);
+	bottomrightrectangle.setFillColor(sf::Color::Green);
+	bottomrightrectangle.setSize(sf::Vector2f(bottomrightrectanglesize));
+	
 	//Text
 
 	if (!font.loadFromFile("font/arial.ttf"))
@@ -57,10 +62,6 @@ Level::Level(sf::RenderWindow* hwnd)
 	text.setPosition(position);
 	text.setString("I'll conquer the world ");
 	text.setCharacterSize(24);
-	
-
-	
-	
 }
 
 Level::~Level()
@@ -70,13 +71,15 @@ Level::~Level()
 // handle user input
 void Level::handleInput()
 {
-
+	
 }
 
 // Update game objects
 void Level::update()
 {
-	
+	sf::Vector2f bottomrightrectanglesize(100, 100);
+	sf::Vector2u pos = window->getSize();	//always gets the window size
+	bottomrightrectangle.setPosition(sf::Vector2f(pos)-bottomrightrectanglesize);		//The rectangle will stay in the bottom right corner
 }
 
 // Render level
@@ -88,6 +91,7 @@ void Level::render()
 	window->draw(rectgreen);
 	window->draw(circle);
 	window->draw(text);
+	window->draw(bottomrightrectangle);
 	endDraw();
 }
 
